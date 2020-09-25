@@ -44,6 +44,7 @@ public class DoLogin extends HttpServlet {
 			page ="/view/loginFail.jsp";
 			request.setAttribute("id", id);
 		}
+		
 		else {
 			page ="/view/loginSuccess.jsp";
 			request.setAttribute("customer", customer);

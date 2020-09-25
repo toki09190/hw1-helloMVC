@@ -43,8 +43,14 @@ public class DoRegister extends HttpServlet {
 		Customer customer = rgservice.register(id,password,name,gender,email);
 		
 		String rpage;
-		rpage="view/registerSuccess.jsp";
-		request.setAttribute("customer", customer);
+		if(id.equals("") || password.equals("")|| name.equals("") || gender.equals("")|| email.equals("")) {
+			rpage="view/error.jsp";
+		}
+		else {
+			rpage="view/registerSuccess.jsp";
+			request.setAttribute("customer", customer);
+		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(rpage);
 		dispatcher.forward(request, response);
